@@ -1,6 +1,7 @@
 package service;
 
 import model.Toy;
+import view.ToysView;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -11,7 +12,7 @@ import java.util.Random;
 
 public class QueueCreator implements Creator{
     private  final List<Toy> queueList = new ArrayList<>();
-
+    private final ToysView toysView = new ToysView();
     private final List<Toy> toys;
 
     public QueueCreator(List<Toy> toysList) {
@@ -70,7 +71,10 @@ public class QueueCreator implements Creator{
 
     @Override
     public void givePrize() {
+        toysView.sendOnConsole(this.queueList.get(0));
         this.writePrizeToFile(this.queueList.get(0));
+
         this.getQueueList().remove(0);
+
     }
 }

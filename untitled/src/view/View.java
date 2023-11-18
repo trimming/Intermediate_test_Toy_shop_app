@@ -5,6 +5,6 @@ import model.Toy;
 import java.util.List;
 
 public interface View {
-    void sendOnConsole(List<Toy> list);
+    void sendOnConsole(Toy toy);
 
 }

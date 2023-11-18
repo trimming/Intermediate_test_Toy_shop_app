@@ -1,33 +1,38 @@
 package model;
 
 public class Toy {
-    private int toyId;
-    private String name;
+    private final int toyId;
+    private final String name;
     private int chance;
     private int quantity;
+    private int toyRange;
 
     public Toy(int toyId, String name, int chance, int quantity) {
-        this.toyId = toyId;
-        this.name = name;
-        this.chance = chance;
-        this.quantity = quantity;
+
+            this.toyId = toyId;
+            this.name = name;
+            this.chance = chance;
+            this.quantity = quantity;
+
+
+    }
+
+    public int getToyRange() {
+        return toyRange;
+    }
+
+    public void setToyRange(int toyRange) {
+        this.toyRange = toyRange;
     }
 
     public int getToyId() {
         return toyId;
     }
 
-    public void setToyId(int toyId) {
-        this.toyId = toyId;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getChance() {
         return chance;
@@ -45,13 +50,10 @@ public class Toy {
         this.quantity = quantity;
     }
 
+
     @Override
     public String toString() {
-        return "Toy{" +
-                "toyId=" + toyId +
-                ", name='" + name + '\'' +
-                ", chance=" + chance +
-                ", quantity=" + quantity +
-                '}';
+        return  "id=" + toyId +
+                '\'' + name + '\'' + '\n';
     }
 }

@@ -1,14 +1,29 @@
-import model.ToysList;
+
+import model.Toy;
+import service.QueueCreator;
+import service.ToysList;
+
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        try {
+            ToysList toys = new ToysList();
+            toys.create("Спиннер", 20, 5);
+            toys.create("Сквиш", 20, 5);
+            toys.create("Симпл-димпл", 50, 10);
+            toys.create("Попыт", 10, 2);
 
-        ToysList toysList = new ToysList();
-        toysList.create("Спиннер", 30, 20);
-        toysList.create("Сквиш", 20, 12);
-        toysList.create("Симпл-димпл", 10, 15);
+            QueueCreator queueCreator = new QueueCreator(toys.getToyList());
 
-        System.out.println(toysList.getToyList().toString());
-        System.out.println(toysList.getToyById(2));
+            queueCreator.getRandomToy();
+
+            queueCreator.givePrize();
+            queueCreator.givePrize();
+            queueCreator.givePrize();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -1,4 +1,6 @@
-package model;
+package service;
+
+import model.Toy;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,10 +9,9 @@ import java.util.List;
 public class ToysList {
     private final List<Toy> toyList = new ArrayList<>();
 
-
     public ToysList() {
     }
-    public void create(String name, int chance, int quantity){
+    public void create(String name, int chance, int quantity) {
         int id = this.getFreeId();
         Toy toy = new Toy(id, name, chance, quantity);
         this.toyList.add(toy);
@@ -37,4 +38,5 @@ public class ToysList {
     public List<Toy> getToyList() {
         return this.toyList;
     }
+
 }
